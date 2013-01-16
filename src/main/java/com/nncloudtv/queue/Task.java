@@ -27,26 +27,22 @@ public class Task {
 	    return obj;
 	}	
 	
-//    obj[0] = msgurl;
-//    obj[1] = method;
-//    obj[2] = contentType;
-//    obj[3] = data;
-
 	public static void doWork(byte[] message) {		
         Object[] obj = (Object[])Task.toObject(message);        
         String url = (String) obj[0];
         String method = (String) obj[1];
         String contentType = (String) obj[2];
-        String data = (String) obj[3];
         log.info("[x] url:" + url);
-        Object json = (Object) obj[1];
         if (method.equals(QueueFactory.METHOD_GET)) {
+            log.info("[x] http get:" + url);
             NnNetUtil.urlGet(url);
         } else {        
             if (contentType.equals(QueueFactory.CONTENTTYPE_JSON)) {
+                Object json = (Object) obj[3];
                 log.info("[x] json:" + json);
                 NnNetUtil.urlPostWithJson(url, json);            
             } else {
+                String data = (String) obj[3];
                 log.info("url:" + url);
                 log.info("data:" + data);
                 NnNetUtil.urlPost(url, data);
