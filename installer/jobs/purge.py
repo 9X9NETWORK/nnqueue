@@ -1,7 +1,8 @@
-# install python packagesudo apt-get install python-amqplib
-# generate queue list
-#  1.sudo rabbitmqctl list_queues -p / name > queues.txt
-#  2.keep only queue names: remove the first line, last line and number after queue names
+# - install python package: apt-get install python-amqplib
+# - generate queue list
+#   1.rabbitmqctl list_queues -p / name > queues.txt
+#   2.keep only queue names: remove the first line, last line and number after queue names
+# - run the script to purge
 
 from amqplib import client_0_8 as amqp
 
