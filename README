@@ -1,3 +1,9 @@
+=============================================================================================================
+Project intro
+=============================================================================================================
+- This project is based on rabbitmq, and nncloudtv.
+- Its job is simply reading things in the queue and executing the URL defined in the task. 
+
 ================================
 Packaging from Eclipse
 ================================ 
@@ -12,6 +18,7 @@ Packaging from Eclipse
 ================================
 Packaging from Apache Maven
 ================================ 
+- Reference installer/build.py
 - mvn assembly:single
   A big JAR file with dependencies included will be built under the "target/" called "nnqueue-0.0.1-SNAPSHOT-jar-with-dependencies.jar"
   After packaging, you have runnable standalone JAR file
@@ -21,17 +28,8 @@ Packaging from Apache Maven
 ================================
 Run
 ================================
-it currently takes 4 params, hello, brand_counter, category_create, channel_create_related.
-an example would be,
-
-> java -jar nnqueue.jar hello
-> java -jar nnqueue.jar brand_counter
-> java -jar nnqueue.jar category_create
-> java -jar nnqueue.jar channel_create_related
-
-Or simply via Maven
-
 > mvn exec:java
+> nohup java -jar nnqueue.jar &
  
 ================================
 In the pipeline
