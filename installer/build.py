@@ -2,7 +2,7 @@ import os, datetime, shutil, sys
 
 installe = raw_input('Install nncloudtv package(y/n): ')
 
-if installe == 'Y':
+if installe == 'y':
   os.chdir("../../nncloudtv")
   os.system("mvn clean compile install -DskipTests")
   os.chdir("../nnqueue/installer")
