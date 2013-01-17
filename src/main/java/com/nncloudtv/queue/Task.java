@@ -27,36 +27,33 @@ public class Task {
 	    return obj;
 	}	
 	
-	public static void doWork(byte[] message) {		
-        Object[] obj = (Object[])Task.toObject(message);        
-        String url = (String) obj[0];
-        String method = (String) obj[1];
-        String contentType = (String) obj[2];
-        log.info("[x] url:" + url);
-        if (method.equals(QueueFactory.METHOD_GET)) {
-            log.info("[x] http get:" + url);
-            NnNetUtil.urlGet(url);
-        } else {        
-            if (contentType.equals(QueueFactory.CONTENTTYPE_JSON)) {
-                Object json = (Object) obj[3];
-                log.info("[x] json:" + json);
-                NnNetUtil.urlPostWithJson(url, json);            
-            } else {
-                String data = (String) obj[3];
-                log.info("url:" + url);
-                log.info("data:" + data);
-                NnNetUtil.urlPost(url, data);
+	public static void doWork(byte[] message) {
+	    try {
+            Object[] obj = (Object[])Task.toObject(message);        
+            String url = (String) obj[0];
+            String method = (String) obj[1];
+            String contentType = (String) obj[2];
+            log.info("[x] url:" + url);
+            if (method.equals(QueueFactory.METHOD_GET)) {
+                log.info("[x] http get:" + url);
+                NnNetUtil.urlGet(url);
+            } else {        
+                if (contentType.equals(QueueFactory.CONTENTTYPE_JSON)) {
+                    Object json = (Object) obj[3];
+                    log.info("[x] json:" + json);
+                    NnNetUtil.urlPostWithJson(url, json);            
+                } else {
+                    String data = (String) obj[3];
+                    log.info("url:" + url);
+                    log.info("data:" + data);
+                    NnNetUtil.urlPost(url, data);
+                }
             }
-        }
-        /*
-        if (json == null) {
-        	NnNetUtil.urlGet(url);
-        } else {
-        	log.info("[x] json:" + json);
-    		NnNetUtil.urlPostWithJson(url, json);
-        }
-		*/
-	    log.info("[x] Done" );
+    	    log.info("[x] Done" );
+	    } catch (Exception e) {
+	        log.info("---- task catch exception ---");
+	        e.printStackTrace();
+	    }
 	}
 	
 }
