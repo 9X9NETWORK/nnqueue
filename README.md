@@ -21,7 +21,7 @@ Packaging from Apache Maven
 Reference **installer/build.py**
 
     :::bash
-    ./build.py
+    python build.py
     
     ## - OR - ##
     
