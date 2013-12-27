@@ -55,7 +55,7 @@
       <groupId>com.nncloudtv</groupId>
       <artifactId>nncloudtv</artifactId>
       <scope>compile</scope>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>4.0.1.2-release</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
