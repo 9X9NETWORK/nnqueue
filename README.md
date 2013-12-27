@@ -25,7 +25,8 @@ Reference **installer/build.py**
     
     ## - OR - ##
     
-    mvn assembly:single  
+    mvn clean compile
+    mvn assembly:assembly  
 
 A big JAR file with dependencies included will be built under the **target/** called **nnqueue-0.0.1-SNAPSHOT-jar-with-dependencies.jar**  
 After packaging, you have runnable standalone JAR file
