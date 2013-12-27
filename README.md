@@ -8,7 +8,7 @@ Packaging from Eclipse
 ================================
 
 -   Right click the project
--   Export **-->** Java **-->** Runnable jar file
+-   Export -> Java -> Runnable jar file
 -   Configuration:  
     Launch configuration, **Main**  
     Export destination, **nnqueue\nnqueue.jar**  
@@ -18,14 +18,20 @@ Packaging from Eclipse
 Packaging from Apache Maven
 ================================
 
--   Reference **installer/build.py**
--       :::bash
-        mvn assembly:single  
-    A big JAR file with dependencies included will be built under the **target/** called **nnqueue-0.0.1-SNAPSHOT-jar-with-dependencies.jar**  
-    After packaging, you have runnable standalone JAR file
+Reference **installer/build.py**
 
-        :::bash
-        java -jar "target/nnqueue-0.0.1-SNAPSHOT-jar-with-dependencies.jar"
+    :::bash
+    ./build.py
+    
+    ## - OR - ##
+    
+    mvn assembly:single  
+
+A big JAR file with dependencies included will be built under the **target/** called **nnqueue-0.0.1-SNAPSHOT-jar-with-dependencies.jar**  
+After packaging, you have runnable standalone JAR file
+
+    :::bash
+    java -jar "target/nnqueue-0.0.1-SNAPSHOT-jar-with-dependencies.jar"
 
 Run
 ================================
